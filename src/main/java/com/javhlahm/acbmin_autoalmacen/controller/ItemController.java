@@ -48,7 +48,7 @@ public class ItemController {
     }
 
     @DeleteMapping("/almacen/{id}")
-    public void postMethodName(@PathVariable Long id) {
+    public void eliminarItemItem(@PathVariable Long id) {
         itemServicio.eliminarItem(id);
     }
 

@@ -1,10 +1,6 @@
 package com.javhlahm.acbmin_autoalmacen.entity;
 
-import java.sql.Date;
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.List;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,11 +13,11 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "acbmin_almauto")
+@Table(name = "acbmin_almauto_inv")
 public class Item implements Cloneable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long id_prod;
 
     private String nombre;
 
@@ -36,7 +32,7 @@ public class Item implements Cloneable {
 
     private String descripcion;
 
-    private int stockDisponible;
+    private int cantidad;
 
     private String modeloAuto;
 
