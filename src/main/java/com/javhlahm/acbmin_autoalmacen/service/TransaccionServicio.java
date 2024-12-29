@@ -15,9 +15,11 @@ public class TransaccionServicio {
 
     @Autowired
     TransacRepo transacRepo;
+    @Autowired
     ItemServicio itemServicio;
 
     public List<Transaccion> obtenerTransacciones() {
+        System.out.println("ingreso al servicio");
         return transacRepo.findAll();
     }
 

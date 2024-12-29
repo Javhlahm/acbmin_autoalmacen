@@ -7,8 +7,8 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "acbmin_almauto_transac")
-public class Transaccion extends Item {
+@Table(name = "acbmin_almauto_transact")
+public class Transaccion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id_trans;
@@ -23,5 +23,24 @@ public class Transaccion extends Item {
     private int cantidad;
 
     private String placa;
+
+    private String nombre;
+
+    private String categoria;
+
+    private String marca;
+
+    private String modelo;
+
+    private String serie;
+
+    private String descripcion;
+
+    private String modeloAuto;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime ultMovimiento;
+
+    private String notas;
 
 }

@@ -10,6 +10,7 @@ import com.javhlahm.acbmin_autoalmacen.entity.Item;
 import com.javhlahm.acbmin_autoalmacen.entity.Transaccion;
 import com.javhlahm.acbmin_autoalmacen.service.TransaccionServicio;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @RestController
 @RequestMapping("/tallerautomotriz/almacen")
+@CrossOrigin(origins = "*")
 public class TransaccionController {
 
     @Autowired
@@ -26,6 +28,7 @@ public class TransaccionController {
 
     @GetMapping("/transact")
     public List<Transaccion> obtenerTranacciones() {
+        System.out.println("ingreso al controller");
         return transaccionServicio.obtenerTransacciones();
     }
 
@@ -35,12 +38,12 @@ public class TransaccionController {
     }
 
     @PostMapping("/transact/salida")
-    public Item guardarTransaccionSalida(@RequestBody Transaccion transaccion) {
+    public Transaccion guardarTransaccionSalida(@RequestBody Transaccion transaccion) {
         return transaccionServicio.guardarTransaccionSalida(transaccion);
     }
 
     @PostMapping("/transact/entrada")
-    public Item guardarTransaccionEntrada(@RequestBody Transaccion transaccion) {
+    public Transaccion guardarTransaccionEntrada(@RequestBody Transaccion transaccion) {
         return transaccionServicio.guardarTransaccionIngreso(transaccion);
     }
 
