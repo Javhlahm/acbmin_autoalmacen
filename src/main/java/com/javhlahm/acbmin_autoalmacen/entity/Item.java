@@ -1,14 +1,12 @@
 package com.javhlahm.acbmin_autoalmacen.entity;
 
-import java.time.LocalDateTime;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+
 import lombok.Data;
 
 @Data
@@ -36,8 +34,7 @@ public class Item implements Cloneable {
 
     private String modeloAuto;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private LocalDateTime ultMovimiento;
+    private String ultMovimiento;
 
     private String notas;
 

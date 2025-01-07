@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.javhlahm.acbmin_autoalmacen.entity.Item;
 import com.javhlahm.acbmin_autoalmacen.entity.Transaccion;
 import com.javhlahm.acbmin_autoalmacen.service.TransaccionServicio;
 

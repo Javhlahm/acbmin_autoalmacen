@@ -1,7 +1,5 @@
 package com.javhlahm.acbmin_autoalmacen.entity;
 
-import java.time.LocalDateTime;
-
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -15,8 +13,7 @@ public class Transaccion {
 
     private String tipo;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private LocalDateTime fecha;
+    private String fecha;
 
     private long id_prod;
 
@@ -38,9 +35,8 @@ public class Transaccion {
 
     private String modeloAuto;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private LocalDateTime ultMovimiento;
+    private String valeSalida;
 
-    private String notas;
+    private String requerimientoONotas;
 
 }

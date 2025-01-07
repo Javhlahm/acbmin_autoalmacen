@@ -40,6 +40,7 @@ public class TransaccionServicio {
         Optional<Item> item = itemServicio.obtenerItemID(transaccion.getId_prod());
         if (item.isPresent()) {
             item.get().setCantidad(item.get().getCantidad() + transaccion.getCantidad());
+            item.get().setUltMovimiento(transaccion.getFecha());
             itemServicio.guardarActualizarItem(item.get());
         } else {
             Item item2 = new Item();
@@ -51,8 +52,8 @@ public class TransaccionServicio {
             item2.setDescripcion(transaccion.getDescripcion());
             item2.setCantidad(transaccion.getCantidad());
             item2.setModeloAuto(transaccion.getModeloAuto());
-            item2.setUltMovimiento(transaccion.getUltMovimiento());
-            item2.setNotas(transaccion.getNotas());
+            item2.setUltMovimiento(transaccion.getFecha());
+            item2.setNotas(transaccion.getRequerimientoONotas());
             itemServicio.guardarActualizarItem(item2);
         }
         return transacRepo.save(transaccion);
