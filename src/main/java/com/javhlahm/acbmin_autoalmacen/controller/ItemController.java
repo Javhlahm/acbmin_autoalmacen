@@ -30,9 +30,9 @@ public class ItemController {
         return itemServicio.obtenerItems();
     }
 
-    @GetMapping("/almacen/{id}")
-    public Optional<Item> obtenerItemID(@PathVariable("id") Long id) {
-        return itemServicio.obtenerItemID(id);
+    @GetMapping("/almacen/{serie}")
+    public Optional<Item> obtenerItemSerie(@PathVariable("serie") String serie) {
+        return itemServicio.obtenerItemSerie(serie);
     }
 
     @PostMapping("/almacen")
@@ -49,9 +49,9 @@ public class ItemController {
         return itemServicio.guardarActualizarItem(item);
     }
 
-    @DeleteMapping("/almacen/{id}")
-    public void eliminarItemItem(@PathVariable Long id) {
-        itemServicio.eliminarItem(id);
+    @DeleteMapping("/almacen/{serie}")
+    public void eliminarItem(@PathVariable String serie) {
+        itemServicio.eliminarItem(serie);
     }
 
 }

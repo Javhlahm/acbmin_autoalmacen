@@ -28,16 +28,17 @@ public class TransaccionServicio {
     }
 
     public Transaccion guardarTransaccionSalida(Transaccion transaccion) {
-        Optional<Item> item = itemServicio.obtenerItemID(transaccion.getId_prod());
+        Optional<Item> item = itemServicio.obtenerItemSerie(transaccion.getSerie());
         if (item.isPresent()) {
             item.get().setCantidad(item.get().getCantidad() - transaccion.getCantidad());
+            item.get().setUltMovimiento(transaccion.getFecha());
             itemServicio.guardarActualizarItem(item.get());
         }
         return transacRepo.save(transaccion);
     }
 
     public Transaccion guardarTransaccionIngreso(Transaccion transaccion) {
-        Optional<Item> item = itemServicio.obtenerItemID(transaccion.getId_prod());
+        Optional<Item> item = itemServicio.obtenerItemSerie(transaccion.getSerie());
         if (item.isPresent()) {
             item.get().setCantidad(item.get().getCantidad() + transaccion.getCantidad());
             item.get().setUltMovimiento(transaccion.getFecha());
@@ -54,6 +55,8 @@ public class TransaccionServicio {
             item2.setModeloAuto(transaccion.getModeloAuto());
             item2.setUltMovimiento(transaccion.getFecha());
             item2.setNotas(transaccion.getRequerimientoONotas());
+            item2.setAging(transaccion.getAging());
+            item2.setLocalidad(transaccion.getLocalidad());
             itemServicio.guardarActualizarItem(item2);
         }
         return transacRepo.save(transaccion);

@@ -18,16 +18,16 @@ public class ItemServicio {
         return itemRepo.findAll();
     }
 
-    public Optional<Item> obtenerItemID(long id) {
-        return itemRepo.findById(id);
+    public Optional<Item> obtenerItemSerie(String serie) {
+        return itemRepo.findBySerie(serie);
     }
 
     public Item guardarActualizarItem(Item item) {
         return itemRepo.save(item);
     }
 
-    public void eliminarItem(Long id) {
-        itemRepo.deleteById(id);
+    public void eliminarItem(String serie) {
+        itemRepo.deleteBySerie(serie);
     }
 
 }

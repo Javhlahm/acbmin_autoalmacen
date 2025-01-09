@@ -38,6 +38,10 @@ public class Item implements Cloneable {
 
     private String notas;
 
+    private String aging;
+
+    private String localidad;
+
     @Override
     public Item clone() {
         try {

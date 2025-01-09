@@ -39,4 +39,8 @@ public class Transaccion {
 
     private String requerimientoONotas;
 
+    private String aging;
+
+    private String localidad;
+
 }
