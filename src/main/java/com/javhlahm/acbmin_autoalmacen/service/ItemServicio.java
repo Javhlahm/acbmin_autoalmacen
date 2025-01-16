@@ -15,6 +15,7 @@ public class ItemServicio {
     ItemRepo itemRepo;
 
     public List<Item> obtenerItems() {
+        itemRepo.findAll();
         return itemRepo.findAll();
     }
 

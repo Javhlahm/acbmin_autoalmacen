@@ -55,7 +55,6 @@ public class TransaccionServicio {
             item2.setModeloAuto(transaccion.getModeloAuto());
             item2.setUltMovimiento(transaccion.getFecha());
             item2.setNotas(transaccion.getRequerimientoONotas());
-            item2.setAging(transaccion.getAging());
             item2.setLocalidad(transaccion.getLocalidad());
             itemServicio.guardarActualizarItem(item2);
         }

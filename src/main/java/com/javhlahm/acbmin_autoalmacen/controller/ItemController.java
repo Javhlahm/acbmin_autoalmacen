@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.javhlahm.acbmin_autoalmacen.entity.Item;
@@ -26,32 +27,37 @@ public class ItemController {
     ItemServicio itemServicio;
 
     @GetMapping("/almacen")
-    public List<Item> obtenerItems() {
-        return itemServicio.obtenerItems();
+    public ResponseEntity<List<Item>> obtenerItems() {
+        List<Item> lista = itemServicio.obtenerItems();
+        return ResponseEntity.ok(lista);
     }
 
     @GetMapping("/almacen/{serie}")
-    public Optional<Item> obtenerItemSerie(@PathVariable("serie") String serie) {
-        return itemServicio.obtenerItemSerie(serie);
+    public ResponseEntity<Optional<Item>> obtenerItemSerie(@PathVariable("serie") String serie) {
+        Optional<Item> item = itemServicio.obtenerItemSerie(serie);
+        return item.isPresent() ? ResponseEntity.ok(item) : ResponseEntity.noContent().build();
     }
 
     @PostMapping("/almacen")
-    public Item guardarItem(@RequestBody Item item) {
-        return itemServicio.guardarActualizarItem(item);
+    public ResponseEntity<Optional<Item>> guardarItem(@RequestBody Item item) {
+        Optional<Item> item2 = Optional.of(itemServicio.guardarActualizarItem(item));
+        return item2.isPresent() ? ResponseEntity.ok(item2) : ResponseEntity.noContent().build();
     }
 
     @PutMapping("/almacen")
-    public Item actualizarItem(@RequestBody Item item) {
+    public ResponseEntity<Optional<Item>> actualizarItem(@RequestBody Item item) {
         Item item2;
         item2 = item.clone();
         item2.setSerie(null);
         itemServicio.guardarActualizarItem(item2);
-        return itemServicio.guardarActualizarItem(item);
+        Optional<Item> itemopt = Optional.of(itemServicio.guardarActualizarItem(item));
+        return itemopt.isPresent() ? ResponseEntity.ok(itemopt) : ResponseEntity.noContent().build();
     }
 
     @DeleteMapping("/almacen/{serie}")
-    public void eliminarItem(@PathVariable String serie) {
+    public ResponseEntity<Void> eliminarItem(@PathVariable String serie) {
         itemServicio.eliminarItem(serie);
+        return ResponseEntity.ok().build();
     }
 
 }

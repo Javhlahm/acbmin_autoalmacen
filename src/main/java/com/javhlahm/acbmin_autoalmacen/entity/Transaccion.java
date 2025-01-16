@@ -43,4 +43,7 @@ public class Transaccion {
 
     private String localidad;
 
+    @Column(updatable = false, insertable = false)
+    private String notas;
+
 }

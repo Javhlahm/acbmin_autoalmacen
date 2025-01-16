@@ -1,10 +1,13 @@
 package com.javhlahm.acbmin_autoalmacen.entity;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 
 import lombok.Data;
@@ -25,7 +28,7 @@ public class Item implements Cloneable {
 
     private String modelo;
 
-    @Column(unique = true)
+    @Column(nullable = false, unique = true)
     private String serie;
 
     private String descripcion;
@@ -36,11 +39,21 @@ public class Item implements Cloneable {
 
     private String ultMovimiento;
 
+    @Column(name = "fecha_creacion", updatable = false, nullable = false)
+    private LocalDate fechaCreacion;
+
     private String notas;
 
-    private String aging;
+    @Column(name = "aging", insertable = false, updatable = false)
+
+    private Integer aging;
 
     private String localidad;
+
+    @PrePersist
+    public void prePersist() {
+        this.fechaCreacion = LocalDate.now();
+    }
 
     @Override
     public Item clone() {

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.javhlahm.acbmin_autoalmacen.entity.Transaccion;
@@ -26,28 +27,32 @@ public class TransaccionController {
     TransaccionServicio transaccionServicio;
 
     @GetMapping("/transact")
-    public List<Transaccion> obtenerTranacciones() {
-        System.out.println("ingreso al controller");
-        return transaccionServicio.obtenerTransacciones();
+    public ResponseEntity<List<Transaccion>> obtenerTranacciones() {
+        List<Transaccion> lista = transaccionServicio.obtenerTransacciones();
+        return ResponseEntity.ok(lista);
     }
 
     @GetMapping("/transact/{id}")
-    public Optional<Transaccion> obtenerTransaccionID(@PathVariable("id") Long id) {
-        return transaccionServicio.obtenerTransaccionID(id);
+    public ResponseEntity<Optional<Transaccion>> obtenerTransaccionID(@PathVariable("id") Long id) {
+        Optional<Transaccion> transaccion = transaccionServicio.obtenerTransaccionID(id);
+        return transaccion.isPresent() ? ResponseEntity.ok(transaccion) : ResponseEntity.noContent().build();
     }
 
     @PostMapping("/transact/salida")
-    public Transaccion guardarTransaccionSalida(@RequestBody Transaccion transaccion) {
-        return transaccionServicio.guardarTransaccionSalida(transaccion);
+    public ResponseEntity<Optional<Transaccion>> guardarTransaccionSalida(@RequestBody Transaccion transaccion) {
+        Optional<Transaccion> transaccion2 = Optional.of(transaccionServicio.guardarTransaccionSalida(transaccion));
+        return transaccion2.isPresent() ? ResponseEntity.ok(transaccion2) : ResponseEntity.noContent().build();
     }
 
     @PostMapping("/transact/entrada")
-    public Transaccion guardarTransaccionEntrada(@RequestBody Transaccion transaccion) {
-        return transaccionServicio.guardarTransaccionIngreso(transaccion);
+    public ResponseEntity<Optional<Transaccion>> guardarTransaccionEntrada(@RequestBody Transaccion transaccion) {
+        Optional<Transaccion> transaccion2 = Optional.of(transaccionServicio.guardarTransaccionIngreso(transaccion));
+        return transaccion2.isPresent() ? ResponseEntity.ok(transaccion2) : ResponseEntity.noContent().build();
     }
 
     @DeleteMapping("/transact/{id}")
-    public void eliminarTransaccion(@PathVariable Long id) {
+    public ResponseEntity<Void> eliminarTransaccion(@PathVariable Long id) {
         transaccionServicio.eliminarTransaccion(id);
+        return ResponseEntity.ok().build();
     }
 }
