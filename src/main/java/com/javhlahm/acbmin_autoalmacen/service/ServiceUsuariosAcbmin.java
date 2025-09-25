@@ -60,6 +60,6 @@ public class ServiceUsuariosAcbmin {
                 && passwordEncoder.matches(contrasena, usuarioEncontrado.get().getContrasena())) {
             return usuarioEncontrado;
         }
-        return null;
+        return Optional.empty();
     }
 }
