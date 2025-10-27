@@ -1,0 +1,176 @@
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
+<jasperReport name="Resguardo_interno" language="java" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9fe8c59f-14a6-4730-8e91-2616e2060eca">
+	<parameter name="P_FOLIO" class="java.lang.String"/>
+	<parameter name="P_FECHA" class="java.lang.String"/>
+	<parameter name="P.INVENTARIO" class="java.lang.String"/>
+	<parameter name="P.TRANSFERENCIA" class="java.lang.String"/>
+	<parameter name="P.NUEVO" class="java.lang.String"/>
+	<parameter name="P.DESCRIPCION" class="java.lang.String"/>
+	<parameter name="P.NOMBREENTREGA" class="java.lang.String"/>
+	<parameter name="P.NOMBRERECIBE" class="java.lang.String"/>
+	<parameter name="P.RFCENTREGA" class="java.lang.String"/>
+	<parameter name="P.RFCRECIBE" class="java.lang.String"/>
+	<parameter name="P.AREAENTREGA" class="java.lang.String"/>
+	<parameter name="P.AREARECIBE" class="java.lang.String"/>
+	<parameter name="P.OBSERVACIONES" class="java.lang.String"/>
+	<parameter name="P.LOGO" class="java.io.InputStream"/>
+	<query language="sql"><![CDATA[]]></query>
+	<background splitType="Stretch"/>
+	<title height="749" splitType="Stretch">
+		<element kind="staticText" uuid="f0118e3e-c341-4e04-93b4-5ce172caa4b6" x="175" y="31" width="250" height="13">
+			<text><![CDATA[RESGUARDO INTERNO DE MOBILIARIO Y EQUIPO]]></text>
+		</element>
+		<element kind="staticText" uuid="72c07725-c261-4179-9800-deb9931fad68" x="165" y="7" width="260" height="13">
+			<text><![CDATA[ÁREA DE CONTROL DE BIENES MUEBLES E INMUEBLES]]></text>
+		</element>
+		<element kind="staticText" uuid="95241bf0-9bdf-4067-a907-8fbf55ade945" x="429" y="57" width="35" height="20">
+			<text><![CDATA[Folio:]]></text>
+		</element>
+		<element kind="staticText" uuid="47d421e1-0c18-49b2-a7a4-5270197b3cbc" x="364" y="77" width="100" height="20">
+			<text><![CDATA[Fecha de Resguado:]]></text>
+		</element>
+		<element kind="rectangle" uuid="78c60005-e0cb-478d-b774-833b537cfa4c" x="464" y="67" width="100" height="1">
+			<pen lineWidth="0.5"/>
+		</element>
+		<element kind="rectangle" uuid="db4fcb5a-26f9-4a46-b26f-fa9ddc48decf" x="464" y="87" width="100" height="1">
+			<pen lineWidth="0.5"/>
+		</element>
+		<element kind="rectangle" uuid="201faa7f-bdb3-48f4-8826-cf57b36c75b2" x="24" y="104" width="530" height="198" radius="5"/>
+		<element kind="rectangle" uuid="1f2149d9-12d1-4e0d-9d71-af629e2d4b85" mode="Opaque" x="24" y="104" width="530" height="27" backcolor="#E6E6E6" radius="5"/>
+		<element kind="staticText" uuid="87894c92-09b9-4e40-8227-32c6fec12f71" x="34" y="111" width="205" height="20" fontSize="12.0" bold="true">
+			<text><![CDATA[1.- Datos del Bien en Resguardo]]></text>
+		</element>
+		<element kind="staticText" uuid="73af66fd-14c8-4df7-8f1f-37bcdd627898" x="34" y="144" width="135" height="20" fontSize="12.0">
+			<text><![CDATA[No. de Inventario:]]></text>
+		</element>
+		<element kind="staticText" uuid="478a66a3-c4ad-4ef6-ae04-9fbaf6284e6a" x="34" y="179" width="135" height="20" fontSize="12.0">
+			<text><![CDATA[Tipo de Resguardo:]]></text>
+		</element>
+		<element kind="rectangle" uuid="25af6046-f335-45e7-b1be-a26d9e60685d" x="204" y="184" width="10" height="10"/>
+		<element kind="staticText" uuid="3379b5c1-d509-4d97-8902-b6d9216ad26d" x="229" y="184" width="135" height="15" fontSize="10.0">
+			<text><![CDATA[Transferencia]]></text>
+		</element>
+		<element kind="rectangle" uuid="0a059206-7f4f-4775-9d3c-188d2967ecc2" x="369" y="184" width="10" height="10"/>
+		<element kind="staticText" uuid="c20c1038-65e1-4fb1-9123-62371fadbcbb" x="394" y="184" width="135" height="15" fontSize="10.0">
+			<text><![CDATA[Nuevo Resguardo]]></text>
+		</element>
+		<element kind="staticText" uuid="927e2cbb-e589-4774-b7c7-9e5584afaaf6" x="34" y="214" width="250" height="20" fontSize="12.0">
+			<text><![CDATA[Descripción y Características del Bien:]]></text>
+		</element>
+		<element kind="rectangle" uuid="3b9a617f-8614-4c57-b2a5-f1c3480ec0ca" x="159" y="164" width="370" height="1">
+			<pen lineWidth="0.5"/>
+		</element>
+		<element kind="rectangle" uuid="4ddb4ce9-cf4d-4856-8fb2-57ba902ed0ac" x="34" y="259" width="505" height="33">
+			<pen lineWidth="0.5"/>
+		</element>
+		<element kind="staticText" uuid="8ef8ec18-bbbe-498c-8da1-6889fbadcd03" x="34" y="235" width="495" height="20" fontSize="10.0">
+			<text><![CDATA[(Incluir marca, modelo, número de serie, color, y cualquier característica relevante.)]]></text>
+		</element>
+		<element kind="rectangle" uuid="bcdd6b0e-c225-4009-a559-42771359e8f1" x="24" y="314" width="530" height="195" radius="5"/>
+		<element kind="rectangle" uuid="6ee705a5-6d5d-4268-8a26-c1b9775a00d8" mode="Opaque" x="24" y="314" width="530" height="27" backcolor="#E6E6E6" radius="5"/>
+		<element kind="staticText" uuid="ba131143-c232-45e4-a4f4-4432c4471bd6" x="34" y="321" width="205" height="20" fontSize="12.0" bold="true">
+			<text><![CDATA[2. Partes Involucradas]]></text>
+		</element>
+		<element kind="staticText" uuid="7614ee87-2c56-4685-a114-4f975f3e17d4" x="39" y="354" width="195" height="20" fontSize="12.0">
+			<text><![CDATA[Nombre de Quien Entrega:]]></text>
+		</element>
+		<element kind="rectangle" uuid="d2e93b78-5d01-4783-9541-070a7081d73e" x="39" y="392" width="230" height="1">
+			<pen lineWidth="0.5"/>
+		</element>
+		<element kind="staticText" uuid="81a6802b-d189-4a4e-9e2a-2338cfa1880f" x="39" y="406" width="195" height="20" fontSize="12.0">
+			<text><![CDATA[RFC:]]></text>
+		</element>
+		<element kind="rectangle" uuid="970032f4-e745-4165-ac4a-5bf66d527f7f" x="39" y="443" width="230" height="1">
+			<pen lineWidth="0.5"/>
+		</element>
+		<element kind="staticText" uuid="9cabc356-fd81-429e-8b59-151f20a3001f" x="39" y="461" width="195" height="20" fontSize="12.0">
+			<text><![CDATA[Área que Entrega:]]></text>
+		</element>
+		<element kind="rectangle" uuid="7628f491-f318-40ff-a078-cec33314857e" x="39" y="495" width="230" height="1">
+			<pen lineWidth="0.5"/>
+		</element>
+		<element kind="staticText" uuid="d585fde3-f0c1-4aa7-bbe6-c5ed3a2c8651" x="307" y="354" width="195" height="20" fontSize="12.0">
+			<text><![CDATA[Nombre de Quien Recibe:]]></text>
+		</element>
+		<element kind="rectangle" uuid="b64cb80f-4f39-4c3e-b311-8f69901886d1" x="307" y="391" width="230" height="1">
+			<pen lineWidth="0.5"/>
+		</element>
+		<element kind="staticText" uuid="5290cd47-63a9-41f4-a55b-f62294ed0153" x="307" y="406" width="195" height="20" fontSize="12.0">
+			<text><![CDATA[RFC:]]></text>
+		</element>
+		<element kind="rectangle" uuid="8bd5ba4c-1e40-4da0-860e-403c1bed21c3" x="307" y="443" width="230" height="1">
+			<pen lineWidth="0.5"/>
+		</element>
+		<element kind="staticText" uuid="73cd8e41-81a3-45ec-b45f-d5e1326876b6" x="307" y="461" width="195" height="20" fontSize="12.0">
+			<text><![CDATA[Área que Recibe:]]></text>
+		</element>
+		<element kind="rectangle" uuid="07da8d3a-1ca2-45f5-8348-53c04f56a322" x="307" y="494" width="230" height="1">
+			<pen lineWidth="0.5"/>
+		</element>
+		<element kind="rectangle" uuid="bbb0eb10-472c-4556-8023-8acc9cfa6157" x="24" y="522" width="530" height="130" radius="5"/>
+		<element kind="rectangle" uuid="2d22064b-a324-41ed-89f0-dad6b3071d2c" mode="Opaque" x="24" y="522" width="530" height="27" backcolor="#E6E6E6" radius="5"/>
+		<element kind="staticText" uuid="eda56777-5b79-46c1-a0c9-a3ed67040631" x="34" y="529" width="205" height="20" fontSize="12.0" bold="true">
+			<text><![CDATA[3. Observaciones]]></text>
+		</element>
+		<element kind="rectangle" uuid="4ec3a8d4-1ea3-4a57-8d07-e4b2b5ab55f6" x="34" y="596" width="505" height="46">
+			<pen lineWidth="0.5"/>
+		</element>
+		<element kind="staticText" uuid="d9a0ee49-58c3-49df-8b9e-a06e1a0e7a77" x="34" y="566" width="495" height="36" fontSize="10.0" hTextAlign="Justified">
+			<text><![CDATA[(Detallar el estado físico en que se entrega el bien: golpes, rayaduras, accesorios faltantes, funcionamiento, etc.)]]></text>
+		</element>
+		<element kind="staticText" uuid="c0a10bed-14e2-415b-925e-facf036ed94f" x="80" y="709" width="195" height="15" fontSize="12.0">
+			<text><![CDATA[Firma de Quien Entrega:]]></text>
+		</element>
+		<element kind="rectangle" uuid="5e9faad0-df60-446d-b207-03e7f6d49537" x="39" y="704" width="230" height="1">
+			<pen lineWidth="0.5"/>
+		</element>
+		<element kind="staticText" uuid="896d542a-4393-4cf1-a33b-f54512bde4eb" x="344" y="709" width="195" height="15" fontSize="12.0">
+			<text><![CDATA[Firma de Quien Recibe:]]></text>
+		</element>
+		<element kind="rectangle" uuid="c67d1e48-261e-4846-bc2c-37c3eba43fbc" x="303" y="704" width="230" height="1">
+			<pen lineWidth="0.5"/>
+		</element>
+		<element kind="textField" uuid="61fb417a-8ff2-4777-8f3a-3bc44124927a" x="470" y="53" width="100" height="13" blankWhenNull="true">
+			<expression><![CDATA[$P{P_FOLIO}]]></expression>
+		</element>
+		<element kind="textField" uuid="46c15d82-c2cc-427b-9dd6-57672118bf27" x="470" y="74" width="100" height="18" blankWhenNull="true">
+			<expression><![CDATA[$P{P_FECHA}]]></expression>
+		</element>
+		<element kind="textField" uuid="04f476a4-80ea-4d2e-a2c4-2dcc3136fb44" x="167" y="149" width="100" height="16" blankWhenNull="true">
+			<expression><![CDATA[$P{P.INVENTARIO}]]></expression>
+		</element>
+		<element kind="textField" uuid="f3c7adcc-b92f-43f0-a767-119c7c3e7736" x="206" y="183" width="14" height="13" blankWhenNull="true">
+			<expression><![CDATA[$P{P.TRANSFERENCIA}]]></expression>
+		</element>
+		<element kind="textField" uuid="c41f7475-bba2-437d-8d91-d2a518e94101" x="370" y="184" width="22" height="15" blankWhenNull="true">
+			<expression><![CDATA[$P{P.NUEVO}]]></expression>
+		</element>
+		<element kind="textField" uuid="d9466d18-348c-4c44-8b65-0f64380b0188" x="40" y="262" width="499" height="30" blankWhenNull="true">
+			<expression><![CDATA[$P{P.DESCRIPCION}]]></expression>
+		</element>
+		<element kind="textField" uuid="b702999d-ef9f-4694-8084-7197f50a4838" x="40" y="375" width="229" height="22" blankWhenNull="true">
+			<expression><![CDATA[$P{P.NOMBREENTREGA}]]></expression>
+		</element>
+		<element kind="textField" uuid="7dd07ddf-b09d-4335-8bbc-95023fa61713" x="307" y="376" width="234" height="17" blankWhenNull="true">
+			<expression><![CDATA[$P{P.NOMBRERECIBE}]]></expression>
+		</element>
+		<element kind="textField" uuid="ec4af503-e283-4a80-8a99-568e6e7deea0" x="39" y="428" width="221" height="22" blankWhenNull="true">
+			<expression><![CDATA[$P{P.RFCENTREGA}]]></expression>
+		</element>
+		<element kind="textField" uuid="126bd679-d10b-49de-a666-dd5aa11d06fc" x="307" y="429" width="222" height="15" blankWhenNull="true">
+			<expression><![CDATA[$P{P.RFCRECIBE}]]></expression>
+		</element>
+		<element kind="textField" uuid="a29c081b-3a27-4fa5-89c1-725d3cad14d1" x="40" y="480" width="226" height="14" blankWhenNull="true">
+			<expression><![CDATA[$P{P.AREAENTREGA}]]></expression>
+		</element>
+		<element kind="textField" uuid="89cc04ef-86d2-4af8-ba4d-dc6849d5401a" x="307" y="480" width="222" height="20" blankWhenNull="true">
+			<expression><![CDATA[$P{P.AREARECIBE}]]></expression>
+		</element>
+		<element kind="textField" uuid="7b98d7c0-e32a-4376-87cc-66ad94ee5ecf" x="37" y="602" width="503" height="38" blankWhenNull="true">
+			<expression><![CDATA[$P{P.OBSERVACIONES}]]></expression>
+		</element>
+		<element kind="image" uuid="2dd5ec9e-adcd-4c84-b41e-99109bb16ead" x="0" y="0" width="150" height="50">
+			<expression><![CDATA[$P{P.LOGO}]]></expression>
+		</element>
+	</title>
+</jasperReport>
