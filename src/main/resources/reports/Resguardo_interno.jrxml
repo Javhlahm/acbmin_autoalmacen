@@ -172,7 +172,7 @@
 		<element kind="image" uuid="2dd5ec9e-adcd-4c84-b41e-99109bb16ead" x="11" y="0" width="139" height="50">
 			<expression><![CDATA[$P{P.LOGO}]]></expression>
 		</element>
-		<element kind="textField" uuid="b9ebe7d5-69fa-4b1d-b175-b56a50e05616" x="37" y="702" width="235" height="12" hTextAlign="Center">
+		<element kind="textField" uuid="b9ebe7d5-69fa-4b1d-b175-b56a50e05616" x="37" y="702" width="235" height="18" hTextAlign="Center">
 			<expression><![CDATA[$P{P.NOMBREENTREGA}]]></expression>
 		</element>
 		<element kind="textField" uuid="7181b7a8-a40f-423d-9594-fbbbc8f18675" x="307" y="700" width="230" height="17" hTextAlign="Center">

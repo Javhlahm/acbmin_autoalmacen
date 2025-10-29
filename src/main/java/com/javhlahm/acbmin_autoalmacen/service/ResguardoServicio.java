@@ -10,8 +10,9 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.ResourceUtils;
 
-
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.time.LocalDateTime;
@@ -42,23 +43,30 @@ public class ResguardoServicio {
     }
     // --- Fin Métodos Helper ---
 
-
     // --- Métodos CRUD (sin cambios) ---
-    public List<Resguardo> getAllResguardos() { 
-        return resguardoRepo.findAll(); }
+    public List<Resguardo> getAllResguardos() {
+        return resguardoRepo.findAll();
+    }
 
     public Optional<Resguardo> getResguardoByFolio(Integer folio) {
-         return resguardoRepo.findById(folio); }
+        return resguardoRepo.findById(folio);
+    }
 
-    @Transactional public Resguardo createResguardo(Resguardo resguardo) { 
-        if (resguardo.getFolio() != null) { 
-            resguardo.setFolio(null); } 
-        return resguardoRepo.save(resguardo); }
+    @Transactional
+    public Resguardo createResguardo(Resguardo resguardo) {
+        if (resguardo.getFolio() != null) {
+            resguardo.setFolio(null);
+        }
+        return resguardoRepo.save(resguardo);
+    }
 
-    @Transactional public void deleteResguardo(Integer folio) { 
-        Resguardo resguardoExistente = resguardoRepo.findById(folio).orElseThrow(() -> new EntityNotFoundException("Resguardo no encontrado con folio: " + folio)); 
-        resguardoRepo.delete(resguardoExistente); }
-        
+    @Transactional
+    public void deleteResguardo(Integer folio) {
+        Resguardo resguardoExistente = resguardoRepo.findById(folio)
+                .orElseThrow(() -> new EntityNotFoundException("Resguardo no encontrado con folio: " + folio));
+        resguardoRepo.delete(resguardoExistente);
+    }
+
     @Transactional
     public Resguardo updateResguardo(Integer folio, Resguardo resguardoDetails) {
         Resguardo resguardoExistente = resguardoRepo.findById(folio)
@@ -94,18 +102,14 @@ public class ResguardoServicio {
     }
     // --- Fin Métodos CRUD ---
 
-
     // --- Método para generar PDF ---
     public byte[] generarPdfResguardo(Integer folio) throws JRException, EntityNotFoundException, IOException {
         Resguardo resguardo = resguardoRepo.findById(folio)
                 .orElseThrow(() -> new EntityNotFoundException("Resguardo no encontrado con folio: " + folio));
 
-        String reportPath = "classpath:reports/Resguardo_interno.jasper";
-        InputStream reportStream = resourceLoader.getResource(reportPath).getInputStream();
-        if (reportStream == null) {
-            throw new IOException("No se pudo encontrar la plantilla del reporte en: " + reportPath);
-        }
-        JasperReport jasperReport = (JasperReport) JRLoader.loadObject(reportStream);
+        File file = ResourceUtils.getFile("classpath:reports/Resguardo_interno.jasper");
+
+        JasperReport jasperReport = (JasperReport) JRLoader.loadObject(file);
 
         Map<String, Object> parameters = new HashMap<>();
 
@@ -133,10 +137,10 @@ public class ResguardoServicio {
             // Caso por defecto o si el tipo no coincide con ninguno esperado
             parameters.put("P.NUEVO", "");
             parameters.put("P.TRANSFERENCIA", "");
-             System.err.println("Advertencia: Tipo de resguardo no reconocido ('" + tipo + "') para folio " + folio + ". Checkboxes quedarán vacíos.");
+            System.err.println("Advertencia: Tipo de resguardo no reconocido ('" + tipo + "') para folio " + folio
+                    + ". Checkboxes quedarán vacíos.");
         }
         // --- Fin Lógica Checkboxes ---
-
 
         // Cargar y añadir el logo como parámetro
         String logoPath = "classpath:img/logo-Educacion-1.png";
@@ -148,7 +152,7 @@ public class ResguardoServicio {
                 parameters.put("P.LOGO", logoInputStream); // *** USA EL NOMBRE DE TU PARÁMETRO ***
                 System.out.println("Logo cargado exitosamente desde: " + logoPath);
             } else {
-                 System.err.println("Advertencia: No se encontró el archivo del logo en: " + logoPath);
+                System.err.println("Advertencia: No se encontró el archivo del logo en: " + logoPath);
             }
         } catch (IOException e) {
             System.err.println("Error al intentar cargar el logo desde " + logoPath + ": " + e.getMessage());
@@ -159,15 +163,14 @@ public class ResguardoServicio {
 
         // Cerrar el InputStream del logo si se abrió
         if (logoInputStream != null) {
-             try {
-                 logoInputStream.close();
-             } catch (IOException e) {
-                 System.err.println("Advertencia: No se pudo cerrar el InputStream del logo: " + e.getMessage());
-             }
-         }
+            try {
+                logoInputStream.close();
+            } catch (IOException e) {
+                System.err.println("Advertencia: No se pudo cerrar el InputStream del logo: " + e.getMessage());
+            }
+        }
 
         return JasperExportManager.exportReportToPdf(jasperPrint);
     } // <-- Cierre del método generarPdfResguardo
 
 } // <-- Cierre de la clase ResguardoServicio
-

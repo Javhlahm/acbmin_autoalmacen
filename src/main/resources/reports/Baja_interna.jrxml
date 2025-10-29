@@ -20,7 +20,7 @@
 		<element kind="staticText" uuid="f0118e3e-c341-4e04-93b4-5ce172caa4b6" x="160" y="31" width="295" height="13" bold="true" hTextAlign="Center">
 			<text><![CDATA[BAJA DE MOBILIARIO Y EQUIPO]]></text>
 		</element>
-		<element kind="staticText" uuid="72c07725-c261-4179-9800-deb9931fad68" x="160" y="7" width="295" height="13" bold="true">
+		<element kind="staticText" uuid="72c07725-c261-4179-9800-deb9931fad68" x="160" y="7" width="295" height="13" bold="true" hTextAlign="Center">
 			<text><![CDATA[ÁREA DE CONTROL DE BIENES MUEBLES E INMUEBLES]]></text>
 		</element>
 		<element kind="staticText" uuid="95241bf0-9bdf-4067-a907-8fbf55ade945" x="429" y="57" width="35" height="20">
@@ -89,7 +89,7 @@
 		<element kind="staticText" uuid="d9a0ee49-58c3-49df-8b9e-a06e1a0e7a77" x="34" y="545" width="495" height="36" fontSize="10.0" hTextAlign="Justified">
 			<text><![CDATA[(Detallar el estado físico o las condiciones bajo las que se da de baja el bien)]]></text>
 		</element>
-		<element kind="staticText" uuid="c0a10bed-14e2-415b-925e-facf036ed94f" x="165" y="696" width="238" height="15" fontSize="12.0" hTextAlign="Center">
+		<element kind="staticText" uuid="c0a10bed-14e2-415b-925e-facf036ed94f" x="165" y="696" width="238" height="34" fontSize="12.0" hTextAlign="Center">
 			<text><![CDATA[Quien Entrega Para Baja]]></text>
 		</element>
 		<element kind="rectangle" uuid="5e9faad0-df60-446d-b207-03e7f6d49537" x="167" y="672" width="230" height="1">
@@ -122,7 +122,7 @@
 		<element kind="image" uuid="2dd5ec9e-adcd-4c84-b41e-99109bb16ead" x="11" y="0" width="139" height="50">
 			<expression><![CDATA[$P{P.LOGO}]]></expression>
 		</element>
-		<element kind="textField" uuid="b9ebe7d5-69fa-4b1d-b175-b56a50e05616" x="165" y="681" width="235" height="12" hTextAlign="Center">
+		<element kind="textField" uuid="b9ebe7d5-69fa-4b1d-b175-b56a50e05616" x="165" y="681" width="235" height="19" blankWhenNull="true" hTextAlign="Center">
 			<expression><![CDATA[$P{P.NOMBREENTREGA}]]></expression>
 		</element>
 	</title>
