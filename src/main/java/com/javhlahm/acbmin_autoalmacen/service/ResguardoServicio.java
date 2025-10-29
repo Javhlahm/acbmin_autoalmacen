@@ -30,7 +30,7 @@ public class ResguardoServicio {
     @Autowired
     private ResourceLoader resourceLoader;
 
-    private static final DateTimeFormatter PDF_DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+    private static final DateTimeFormatter PDF_DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     // --- Métodos Helper Privados ---
     private String safeString(Object obj) {
@@ -38,7 +38,7 @@ public class ResguardoServicio {
     }
 
     private String safeDate(LocalDateTime dt) {
-        return dt != null ? dt.format(PDF_DATE_TIME_FORMATTER) : "";
+        return dt != null ? dt.format(PDF_DATE_FORMATTER) : "";
     }
     // --- Fin Métodos Helper ---
 
@@ -124,15 +124,15 @@ public class ResguardoServicio {
         // --- Lógica para Checkboxes P_NUEVO y P_TRANSFERENCIA ---
         String tipo = safeString(resguardo.getTipoResguardo()).toLowerCase(); // Obtener tipo en minúsculas
         if (tipo.contains("nueva adquisición")) { // Comprobar si contiene la frase clave
-            parameters.put("P_NUEVO", "X");
-            parameters.put("P_TRANSFERENCIA", ""); // Vacío si es nuevo
+            parameters.put("P.NUEVO", "X");
+            parameters.put("P.TRANSFERENCIA", ""); // Vacío si es nuevo
         } else if (tipo.contains("traspaso")) { // Comprobar si contiene la frase clave
-            parameters.put("P_NUEVO", ""); // Vacío si es traspaso
-            parameters.put("P_TRANSFERENCIA", "X");
+            parameters.put("P.NUEVO", ""); // Vacío si es traspaso
+            parameters.put("P.TRANSFERENCIA", "X");
         } else {
             // Caso por defecto o si el tipo no coincide con ninguno esperado
-            parameters.put("P_NUEVO", "");
-            parameters.put("P_TRANSFERENCIA", "");
+            parameters.put("P.NUEVO", "");
+            parameters.put("P.TRANSFERENCIA", "");
              System.err.println("Advertencia: Tipo de resguardo no reconocido ('" + tipo + "') para folio " + folio + ". Checkboxes quedarán vacíos.");
         }
         // --- Fin Lógica Checkboxes ---
