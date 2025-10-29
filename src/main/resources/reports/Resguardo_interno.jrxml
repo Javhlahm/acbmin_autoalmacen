@@ -1,5 +1,5 @@
 <!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
-<jasperReport name="Resguardo_interno" language="java" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9fe8c59f-14a6-4730-8e91-2616e2060eca">
+<jasperReport name="Resguardo_interno" language="java" columnCount="1" pageWidth="612" pageHeight="792" columnWidth="591" leftMargin="19" rightMargin="2" topMargin="19" bottomMargin="2" uuid="9fe8c59f-14a6-4730-8e91-2616e2060eca">
 	<parameter name="P_FOLIO" class="java.lang.String"/>
 	<parameter name="P_FECHA" class="java.lang.String"/>
 	<parameter name="P.INVENTARIO" class="java.lang.String"/>
@@ -17,10 +17,10 @@
 	<query language="sql"><![CDATA[]]></query>
 	<background splitType="Stretch"/>
 	<title height="749" splitType="Stretch">
-		<element kind="staticText" uuid="f0118e3e-c341-4e04-93b4-5ce172caa4b6" x="175" y="31" width="250" height="13">
+		<element kind="staticText" uuid="f0118e3e-c341-4e04-93b4-5ce172caa4b6" x="170" y="31" width="250" height="13" bold="true">
 			<text><![CDATA[RESGUARDO INTERNO DE MOBILIARIO Y EQUIPO]]></text>
 		</element>
-		<element kind="staticText" uuid="72c07725-c261-4179-9800-deb9931fad68" x="165" y="7" width="260" height="13">
+		<element kind="staticText" uuid="72c07725-c261-4179-9800-deb9931fad68" x="160" y="7" width="295" height="13" bold="true">
 			<text><![CDATA[ÁREA DE CONTROL DE BIENES MUEBLES E INMUEBLES]]></text>
 		</element>
 		<element kind="staticText" uuid="95241bf0-9bdf-4067-a907-8fbf55ade945" x="429" y="57" width="35" height="20">
@@ -118,16 +118,16 @@
 		<element kind="staticText" uuid="d9a0ee49-58c3-49df-8b9e-a06e1a0e7a77" x="34" y="566" width="495" height="36" fontSize="10.0" hTextAlign="Justified">
 			<text><![CDATA[(Detallar el estado físico en que se entrega el bien: golpes, rayaduras, accesorios faltantes, funcionamiento, etc.)]]></text>
 		</element>
-		<element kind="staticText" uuid="c0a10bed-14e2-415b-925e-facf036ed94f" x="80" y="709" width="195" height="15" fontSize="12.0">
-			<text><![CDATA[Firma de Quien Entrega:]]></text>
+		<element kind="staticText" uuid="c0a10bed-14e2-415b-925e-facf036ed94f" x="37" y="717" width="238" height="15" fontSize="12.0" hTextAlign="Center">
+			<text><![CDATA[Quien Entrega]]></text>
 		</element>
-		<element kind="rectangle" uuid="5e9faad0-df60-446d-b207-03e7f6d49537" x="39" y="704" width="230" height="1">
+		<element kind="rectangle" uuid="5e9faad0-df60-446d-b207-03e7f6d49537" x="39" y="693" width="230" height="1">
 			<pen lineWidth="0.5"/>
 		</element>
-		<element kind="staticText" uuid="896d542a-4393-4cf1-a33b-f54512bde4eb" x="344" y="709" width="195" height="15" fontSize="12.0">
-			<text><![CDATA[Firma de Quien Recibe:]]></text>
+		<element kind="staticText" uuid="896d542a-4393-4cf1-a33b-f54512bde4eb" x="307" y="717" width="232" height="15" fontSize="12.0" hTextAlign="Center">
+			<text><![CDATA[Quien Recibe]]></text>
 		</element>
-		<element kind="rectangle" uuid="c67d1e48-261e-4846-bc2c-37c3eba43fbc" x="303" y="704" width="230" height="1">
+		<element kind="rectangle" uuid="c67d1e48-261e-4846-bc2c-37c3eba43fbc" x="303" y="693" width="230" height="1">
 			<pen lineWidth="0.5"/>
 		</element>
 		<element kind="textField" uuid="61fb417a-8ff2-4777-8f3a-3bc44124927a" x="470" y="53" width="100" height="13" blankWhenNull="true">
@@ -139,10 +139,10 @@
 		<element kind="textField" uuid="04f476a4-80ea-4d2e-a2c4-2dcc3136fb44" x="167" y="149" width="100" height="16" blankWhenNull="true">
 			<expression><![CDATA[$P{P.INVENTARIO}]]></expression>
 		</element>
-		<element kind="textField" uuid="f3c7adcc-b92f-43f0-a767-119c7c3e7736" x="206" y="183" width="14" height="13" blankWhenNull="true">
+		<element kind="textField" uuid="f3c7adcc-b92f-43f0-a767-119c7c3e7736" x="206" y="183" width="14" height="13" textAdjust="ScaleFont" blankWhenNull="true">
 			<expression><![CDATA[$P{P.TRANSFERENCIA}]]></expression>
 		</element>
-		<element kind="textField" uuid="c41f7475-bba2-437d-8d91-d2a518e94101" x="370" y="184" width="22" height="15" blankWhenNull="true">
+		<element kind="textField" uuid="c41f7475-bba2-437d-8d91-d2a518e94101" x="370" y="184" width="22" height="15" textAdjust="ScaleFont" blankWhenNull="true">
 			<expression><![CDATA[$P{P.NUEVO}]]></expression>
 		</element>
 		<element kind="textField" uuid="d9466d18-348c-4c44-8b65-0f64380b0188" x="40" y="262" width="499" height="30" blankWhenNull="true">
@@ -169,8 +169,14 @@
 		<element kind="textField" uuid="7b98d7c0-e32a-4376-87cc-66ad94ee5ecf" x="37" y="602" width="503" height="38" blankWhenNull="true">
 			<expression><![CDATA[$P{P.OBSERVACIONES}]]></expression>
 		</element>
-		<element kind="image" uuid="2dd5ec9e-adcd-4c84-b41e-99109bb16ead" x="0" y="0" width="150" height="50">
+		<element kind="image" uuid="2dd5ec9e-adcd-4c84-b41e-99109bb16ead" x="11" y="0" width="139" height="50">
 			<expression><![CDATA[$P{P.LOGO}]]></expression>
+		</element>
+		<element kind="textField" uuid="b9ebe7d5-69fa-4b1d-b175-b56a50e05616" x="37" y="702" width="235" height="12" hTextAlign="Center">
+			<expression><![CDATA[$P{P.NOMBREENTREGA}]]></expression>
+		</element>
+		<element kind="textField" uuid="7181b7a8-a40f-423d-9594-fbbbc8f18675" x="307" y="700" width="230" height="17" hTextAlign="Center">
+			<expression><![CDATA[$P{P.NOMBRERECIBE}]]></expression>
 		</element>
 	</title>
 </jasperReport>
