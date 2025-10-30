@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/bajas") // Ruta base para las bajas
+@RequestMapping("/bajas") // Ruta base para las bajasd
 @CrossOrigin // Permite peticiones desde el frontend Flutter
 public class BajaBienController {
 

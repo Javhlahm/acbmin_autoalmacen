@@ -15,7 +15,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/resguardos") // Ruta base actualizada
+@RequestMapping("/resguardos") // Ruta base actualizada
 @CrossOrigin // Permitir peticiones desde el frontend Flutter
 public class ResguardoController {
 

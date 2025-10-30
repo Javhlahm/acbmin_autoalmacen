@@ -6,6 +6,7 @@ import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.util.JRLoader;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 
@@ -116,8 +117,17 @@ public class BajaBienServicio {
         BajaBien baja = bajaOpt.get();
 
         // Cargar archivo .jasper (asumiendo que tienes Baja_interna.jasper)
-        File file = ResourceUtils.getFile("classpath:reports/Baja_interna.jasper");
-        JasperReport jasperReport = (JasperReport) JRLoader.loadObject(file);
+
+        ClassPathResource resource = new ClassPathResource("reports/Baja_interna.jasper");
+        InputStream jasperStream = null;
+        try {
+            jasperStream = resource.getInputStream();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // 2. Cargar el reporte desde el InputStream
+        JasperReport jasperReport = (JasperReport) JRLoader.loadObject(jasperStream);
 
         JRDataSource dataSource = new JREmptyDataSource();
 

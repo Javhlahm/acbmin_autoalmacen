@@ -6,6 +6,7 @@ import jakarta.persistence.EntityNotFoundException;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.util.JRLoader;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
@@ -107,10 +108,17 @@ public class ResguardoServicio {
         Resguardo resguardo = resguardoRepo.findById(folio)
                 .orElseThrow(() -> new EntityNotFoundException("Resguardo no encontrado con folio: " + folio));
 
-        File file = ResourceUtils.getFile("classpath:reports/Resguardo_interno.jasper");
+        ClassPathResource resource = new ClassPathResource("reports/Resguardo_interno.jasper");
+        InputStream jasperStream = null;
+        try {
+            jasperStream = resource.getInputStream();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-        JasperReport jasperReport = (JasperReport) JRLoader.loadObject(file);
-
+        // 2. Cargar el reporte desde el InputStream
+        JasperReport jasperReport = (JasperReport) JRLoader.loadObject(jasperStream);
+        JRDataSource dataSource = new JREmptyDataSource();
         Map<String, Object> parameters = new HashMap<>();
 
         parameters.put("P_FOLIO", "RICB-" + String.format("%04d", resguardo.getFolio()));
@@ -158,7 +166,6 @@ public class ResguardoServicio {
             System.err.println("Error al intentar cargar el logo desde " + logoPath + ": " + e.getMessage());
         }
 
-        JRDataSource dataSource = new JREmptyDataSource();
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
 
         // Cerrar el InputStream del logo si se abrió
